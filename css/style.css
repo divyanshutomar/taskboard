@@ -31,3 +31,9 @@ li {
   border: 1px solid black;
   border-radius: 3px;
 }
+.addButton {
+  border: 1px solid #2196F3;
+  background: #2196F3;
+  border-radius: 3px;;
+  color: #fff;
+}
