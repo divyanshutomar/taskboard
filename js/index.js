@@ -13,6 +13,7 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
+        el.onclick = () => this.removeItemFromBoard('todo', key);
         el.innerHTML = items[key];
         listEl.appendChild(el);
       })
@@ -30,6 +31,7 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
+        el.onclick = () => this.removeItemFromBoard('progress', key);
         el.innerHTML = items[key];
         listEl.appendChild(el);
       })
@@ -47,6 +49,7 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
+        el.onclick = () => this.removeItemFromBoard('done', key);
         el.innerHTML = items[key];
         listEl.appendChild(el);
       })
@@ -61,9 +64,13 @@ var boardManager = {
   },
   removeItemFromBoard: function(boardType,taskId) {
     delete this.tasks[boardType][taskId];
+    switch(boardType) {
+      case 'todo': this.renderTodoList();
+      case 'progress': this.renderProgressList();
+      case 'done': this.renderDoneList();
+    }
   },
   addTodoItem: function() {
-    console.log(this);
     var todoInput = document.querySelector('#todoInput');
     this.addItemToBoard('todo', todoInput.value);
     todoInput.value = '';
