@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Taskboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav>
+  <h2>Task Board</h2>
+</nav>
+<section class='task-board'>
+  <div class="boardContainer todoBoard">
+    <h3>Todo</h3>
+    <hr>
+    <ul class="todoList"></ul>
+    <div class="addForm">
+      <input type="text" id="todoInput" />
+      <button class="addButton" id='todoButton'>
+        Add
+      </button>
+    </div>
+  </div>
+  <div class="boardContainer progressBoard">
+    <h3>In Progress</h3>
+    <hr>
+    <ul class="progressList"></ul>
+    <div class="addForm">
+      <input type="text" id="progressInput" />
+      <button class="addButton" id="progressButton">
+        Add
+      </button>
+    </div>
+  </div>
+  </div>
+  <div class="boardContainer doneBoard">
+    <h3>Done</h3>
+    <hr>
+    <ul class="doneList"></ul>
+    <div class="addForm">
+      <input type="text" id="doneInput" />
+      <button class="addButton" id="doneButton">
+        Add
+      </button>
+    </div>
+  </div>
+  </div>
+</section>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>

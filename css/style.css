@@ -1,0 +1,9 @@
+.task-board {
+  display: flex;
+  justify-content: space-around;
+}
+.boardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
