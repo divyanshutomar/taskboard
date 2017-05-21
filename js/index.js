@@ -13,8 +13,14 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
-        el.onclick = () => this.removeItemFromBoard('todo', key);
-        el.innerHTML = items[key];
+        var textEle = document.createElement('span');
+        textEle.innerHTML = items[key];
+        var delBtn = document.createElement('button');
+        delBtn.onclick = () => this.removeItemFromBoard('todo', key);
+        delBtn.innerHTML = 'X';
+        delBtn.className = 'deleteButton';
+        el.appendChild(textEle);
+        el.appendChild(delBtn);
         listEl.appendChild(el);
       })
     } else {
@@ -31,8 +37,14 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
-        el.onclick = () => this.removeItemFromBoard('progress', key);
-        el.innerHTML = items[key];
+        var textEle = document.createElement('span');
+        textEle.innerHTML = items[key];
+        var delBtn = document.createElement('button');
+        delBtn.onclick = () => this.removeItemFromBoard('progress', key);
+        delBtn.innerHTML = 'X';
+        delBtn.className = 'deleteButton';
+        el.appendChild(textEle);
+        el.appendChild(delBtn);
         listEl.appendChild(el);
       })
     } else {
@@ -49,8 +61,14 @@ var boardManager = {
     if (itemKeys.length > 0) {
       itemKeys.forEach((key) => {
         var el = document.createElement('li');
-        el.onclick = () => this.removeItemFromBoard('done', key);
-        el.innerHTML = items[key];
+        var textEle = document.createElement('span');
+        textEle.innerHTML = items[key];
+        var delBtn = document.createElement('button');
+        delBtn.onclick = () => this.removeItemFromBoard('done', key);
+        delBtn.innerHTML = 'X';
+        delBtn.className = 'deleteButton';
+        el.appendChild(textEle);
+        el.appendChild(delBtn);
         listEl.appendChild(el);
       })
     } else {
