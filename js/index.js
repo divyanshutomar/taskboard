@@ -21,6 +21,9 @@ var boardManager = {
         delBtn.className = 'deleteButton';
         el.appendChild(textEle);
         el.appendChild(delBtn);
+        el.setAttribute('draggable', 'true');
+        el.setAttribute('id', key);
+        el.ondragstart = () => this.taskDragStart(event, items[key], key, 'todo');
         listEl.appendChild(el);
       })
     } else {
@@ -45,6 +48,9 @@ var boardManager = {
         delBtn.className = 'deleteButton';
         el.appendChild(textEle);
         el.appendChild(delBtn);
+        el.setAttribute('draggable', 'true');
+        el.setAttribute('id', key);
+        el.ondragstart = () => this.taskDragStart(event, items[key], key, 'progress');
         listEl.appendChild(el);
       })
     } else {
@@ -69,6 +75,9 @@ var boardManager = {
         delBtn.className = 'deleteButton';
         el.appendChild(textEle);
         el.appendChild(delBtn);
+        el.setAttribute('draggable', 'true');
+        el.setAttribute('id', key);
+        el.ondragstart = () => this.taskDragStart(event, items[key], key, 'done');
         listEl.appendChild(el);
       })
     } else {
@@ -108,6 +117,13 @@ var boardManager = {
     doneInput.value = '';
     this.renderDoneList();
   },
+  taskDragStart: function(ev, text, key, initBoard) {
+    ev.dataTransfer.effectAllowed='move';
+    ev.dataTransfer.setData("Text", text);
+    ev.dataTransfer.setData("ItemKey", key);
+    ev.dataTransfer.setData("initBoard", initBoard);
+    ev.dataTransfer.setDragImage(ev.target,0,0);
+  },
   init: function() {
     document.querySelector('#todoButton').onclick = this.addTodoItem.bind(this);
     document.querySelector('#progressButton').onclick = this.addProgressItem.bind(this);
@@ -117,5 +133,28 @@ var boardManager = {
     this.renderProgressList();
   }
   
+}
+function dragEnter(ev) {
+   event.preventDefault();
+   return true;
+}
+function dragOver(ev) {
+     event.preventDefault();
+}
+function dragDrop(ev) {
+  console.log(ev);
+  var targetBoard = ev.target.classList[1];
+  var data = ev.dataTransfer.getData("Text");
+  var key = ev.dataTransfer.getData("itemKey");
+  var initBoard = ev.dataTransfer.getData("initBoard");
+  boardManager.removeItemFromBoard(initBoard, key);
+  boardManager.addItemToBoard(targetBoard, data);
+  switch(targetBoard) {
+      case 'todo': boardManager.renderTodoList();
+      case 'progress': boardManager.renderProgressList();
+      case 'done': boardManager.renderDoneList();
+    }
+  ev.stopPropagation();
+  return false;
 }
 boardManager.init();

@@ -11,22 +11,20 @@
   <h2>Task Board</h2>
 </nav>
 <section class='task-board'>
-  <div class="boardContainer todoBoard">
+  <div class="boardContainer todo" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
     <h3>Todo</h3>
-    <hr>
-    <ul class="todoList"></ul>
-    <div class="addForm">
+    <ul class="todoList todo"></ul>
+    <div class="addForm todo">
       <input type="text" id="todoInput" />
       <button class="addButton" id='todoButton'>
         Add
       </button>
     </div>
   </div>
-  <div class="boardContainer progressBoard">
+  <div class="boardContainer progress" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
     <h3>In Progress</h3>
-    <hr>
-    <ul class="progressList"></ul>
-    <div class="addForm">
+    <ul class="progressList progress"></ul>
+    <div class="addForm progress">
       <input type="text" id="progressInput" />
       <button class="addButton" id="progressButton">
         Add
@@ -34,11 +32,10 @@
     </div>
   </div>
   </div>
-  <div class="boardContainer doneBoard">
+  <div class="boardContainer done" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
     <h3>Done</h3>
-    <hr>
-    <ul class="doneList"></ul>
-    <div class="addForm">
+    <ul class="doneList done"></ul>
+    <div class="addForm done">
       <input type="text" id="doneInput" />
       <button class="addButton" id="doneButton">
         Add
