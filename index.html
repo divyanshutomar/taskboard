@@ -12,7 +12,7 @@
 </nav>
 <section class='task-board'>
   <div class="boardContainer todo" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
-    <h3>Todo</h3>
+    <h3 class="header todo">Todo</h3>
     <ul class="todoList todo"></ul>
     <div class="addForm todo">
       <input type="text" id="todoInput" />
@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="boardContainer progress" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
-    <h3>In Progress</h3>
+    <h3 class="header progress">In Progress</h3>
     <ul class="progressList progress"></ul>
     <div class="addForm progress">
       <input type="text" id="progressInput" />
@@ -33,7 +33,7 @@
   </div>
   </div>
   <div class="boardContainer done" ondragenter="return dragEnter(event)" ondrop="return dragDrop(event)" ondragover="return dragOver(event)">
-    <h3>Done</h3>
+    <h3 class="header done">Done</h3>
     <ul class="doneList done"></ul>
     <div class="addForm done">
       <input type="text" id="doneInput" />
